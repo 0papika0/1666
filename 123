@@ -1,0 +1,157 @@
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import(QLineEdit, QButtonGroup, QPushButton, QLabel,
+QVBoxLayout, QHBoxLayout, QApplication, QWidget, 
+QMessageBox, QRadioButton, QListWidget, QTextEdit  )
+
+app = QApplication([])
+main_win = QWidget()
+main_win.setWindowTitle('ЗАметки')
+main_win.resize(400, 300)
+main_win.show()
+
+
+note_text = QLineEdit()
+
+note_list = QListWidget()
+note_list_title = ("Список заметок")
+
+notes_list_add_button = QPushButton('Создать заметку')
+notes_list_remove_button = QPushButton('Удалить заметку')
+notes_list_save_button = QPushButton('Сохранить заметку')
+
+
+tags_list = QListWidget()
+tags_list_title = QLabel("Список тегов")
+
+new_tag = QLineEdit()
+new_tag.setPlaceholderText('Введите тег...')
+
+tags_list_add_button = QPushButton('Добавить к заметке')
+tags_list_remove_button = QPushButton('Открепить от заметок')
+tags_list_search_button = QPushButton('Искать заметки по тегу')
+
+col_1 = QVBoxLayout()
+col_2 = QVBoxLayout()
+
+sain_lay = QHBoxLayout()
+
+hlay1 = QHBoxLayout()
+hlay2 = QHBoxLayout()
+hlay3 = QHBoxLayout()
+hlay4 = QHBoxLayout()
+hlay5 = QHBoxLayout()
+
+hlay1.addWidget(notes_list_add_button)
+hlay1.addWidget(notes_list_remove_button)
+
+col_1.addWidget(note_text)
+col_2.addWidget(note_list)
+col_2.addWidget(new_tag)
+
+col_2.addLayout(row_1)
+col_2.addLayout(row_2)
+
+col_2.addWidget(list_tags_label)
+col_2.addWidget(list_tags)
+col_2.addWidget(field_tag)
+row_3 = QHBoxLayout()
+row_3.addWidget(button_tag_add)
+row_3.addWidget(button_tag_del)
+row_4 = QHBoxLayout()
+row_4.addWidget(button_tag_search)
+
+col_2.addLayout(row_3)
+col_2.addLayout(row_4)
+
+layout_notes.addLayout(col_1, stretch = 2)
+layout_notes.addLayout(col_2, stretch = 2)
+notes_win.setLayout(layout_notes)
+
+def add_note():
+    note_name, ok= QInputDialog.getText(notes_win, "Добавить заметку", 'Название заметки:')
+    if ok and note_name != '':
+        notes[note_name] = {
+            'текст': '',
+            'теги' : []
+        }
+    list_notes.addItem(note_name)
+    list_tags.addItem(notes[note_name]['теги'])
+    print(notes)
+
+def show_note():
+    key = list_note.selectedItems()[0].text()
+    print(key)
+    field_text.setText(notes[key]['текст'])
+    list_tags.clear()
+    list_tags.addItems(notes[key]['теги'])
+
+list_notes.ite,Clicked.connect(show_note)
+notes_win.show()
+
+with open ('notes_data.json', 'r') as file:
+    notes = json.load(file)
+list_notes.addItem(notes)
+
+
+
+
+
+
+
+def add_tag():
+    if notes_list.selectedItems():
+        key = notes_list.se
+
+
+
+
+
+def add_note():
+    note_name, ok = QInputDialog.getText(notes_win, 'Добавить заметку', 'Названиме заметки:')
+    if ok and note_name != '':
+        notes[note_name] = {
+            'текст' : '',
+            'теги' : []
+            }
+        list_notes.addItems(note_name)
+        list_tags.addItems(notes[note_name]['теги'])
+        print(no)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.exe_()
